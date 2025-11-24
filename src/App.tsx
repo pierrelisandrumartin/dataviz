@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -8,26 +6,10 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1> dataviz</h1>
+      <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, aliquid sint iure quam dolore quisquam culpa eligendi ullam aut repellendus fuga, quasi hic quibusdam debitis error sequi praesentium reiciendis doloribus eum omnis consequuntur, dicta vitae sapiente? Debitis, tempora obcaecati! Et odio consequatur beatae minima vel doloremque quidem. Provident obcaecati ut temporibus quam? Consequuntur, voluptas nulla explicabo autem officia quibusdam hic, perferendis quasi error accusantium natus, molestias neque facilis fugiat labore. Expedita dolor error non obcaecati nobis facere at ipsum quidem cumque omnis doloremque perferendis aliquam deserunt harum, voluptates quod debitis accusamus minima sapiente optio quis. Ad quaerat odio maiores placeat? Iste, libero reiciendis corrupti nemo eveniet voluptatibus repellendus nostrum temporibus sunt a similique quo maxime tempora quisquam beatae, molestiae qui accusamus? Ducimus consectetur obcaecati placeat illo perspiciatis architecto consequatur minima ipsum harum voluptatibus esse quibusdam modi a quis quos dolorum voluptatem magnam libero, dolorem inventore sunt veritatis. Cupiditate, laudantium nemo!</p>
+
+      <div id='graph_container'></div>
     </>
   )
 }
