@@ -18,24 +18,24 @@ const router = createBrowserRouter([
   },
   {
     path: "/ShootingGraphPage",
-    element: <ShootingGraphPage/>
+    element: <ShootingGraphPage/>,
   },
   {
     path: "/YearGraphPage",
-    element: <YearGraphPage/>
+    element: <YearGraphPage/>,
   },
   {
     path: "/TypeGraphPage",
-    element: <TypeGraphPage/>
+    element: <TypeGraphPage/>,
   },
   {
     path: "/DirectorGraphPage",
-    element: <DirectorGraphPage/>
+    element: <DirectorGraphPage/>,
   },
   {
     path: "/BoroughGraphPage",
-    element: <BoroughGraphPage/>
-  }
+    element: <BoroughGraphPage/>,
+  },
 ])
 
 createRoot(document.getElementById("root")!).render(
