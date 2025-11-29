@@ -13,21 +13,18 @@ import GraphIconContainer from "../components/components_graphs/GraphIconContain
 // Footer
 import Info from "../components/components_footer/Info.tsx";
 
-interface refType {
-  theRef : React.RefObject<HTMLDivElement | null>;
-}
-
-function Home({theRef} : refType) {
+function Home () {
   // const [count, setCount] = useState(0);
 
   return (
     <>
       <Header />
       <Presentation />
-      <div ref={theRef}><GraphIconContainer/></div>
+      <GraphIconContainer/>
       <Info />
     </>
   );
 }
+
 
 export default Home;

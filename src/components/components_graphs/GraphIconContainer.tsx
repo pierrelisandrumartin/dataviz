@@ -4,14 +4,14 @@ import ShootingIcon from "./ShootingIcon";
 import TypeIcon from "./TypeIcon";
 import YearIcon from "./YearIcon";
 
-export default function GraphIconContainer(){
-    return(
-        <div className="flex flex-wrap gap-y-[10px] justify-evenly">
-        <ShootingIcon/>
-        <YearIcon/>
-        <TypeIcon/>
-        <DirectorIcon/>
-        <BoroughIcon/>
-        </div>
-    )
+export default function GraphIconContainer() {
+  return (
+    <div className="flex flex-wrap gap-y-[10px] justify-evenly">
+      <ShootingIcon />
+      <YearIcon />
+      <TypeIcon />
+      <DirectorIcon />
+      <BoroughIcon />
+    </div>
+  );
 }
