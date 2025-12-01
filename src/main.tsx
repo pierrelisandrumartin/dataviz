@@ -9,6 +9,7 @@ import TypeGraphPage from "./pages/TypeGraphPage";
 import DirectorGraphPage from "./pages/DirectorGraphPage";
 import BoroughGraphPage from "./pages/BoroughGraphPage";
 import ExitButton from "./components/components_exitGraphPage/ExitButton";
+import IndexLineChart from "./pages/ShootingGraphPage";
 
 // import Test from "./pages/Test"
 

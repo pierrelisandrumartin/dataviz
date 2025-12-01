@@ -1,6 +1,7 @@
 import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
 
+
 export default function ShootingGraphPage() {
   return (
     <>
@@ -18,7 +19,10 @@ export default function ShootingGraphPage() {
         corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
         placeat! Dolor temporibus quos sequi error fugiat facere.
       </p>
+      
       <ExitButton/>
+      
     </>
   );
 }
+
