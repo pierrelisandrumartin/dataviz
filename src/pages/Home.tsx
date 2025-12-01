@@ -8,7 +8,7 @@ import Header from "../components/header/Header.tsx";
 import Presentation from "../components/presentation/Presentation.tsx";
 
 // Graph Icons container
-import GraphIconContainer from "../components/components_graphs/GraphIconContainer.tsx";
+import GraphIconContainer from "../components/components_graphsIcon/GraphIconContainer.tsx";
 
 // Footer
 import Info from "../components/components_footer/Info.tsx";

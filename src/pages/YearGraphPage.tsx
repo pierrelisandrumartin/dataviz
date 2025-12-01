@@ -1,3 +1,4 @@
+import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
 
 export default function YearGraphPage() {
@@ -10,13 +11,14 @@ export default function YearGraphPage() {
         voluptates! Eos, molestias nisi. Error, delectus. Illum iusto incidunt
         explicabo consequatur libero nesciunt. Harum eos ratione sequi
         voluptates, architecto voluptas voluptatibus! Architecto, illum, vitae
-        -----   Y e a r  G r a p h  P a g e   -----
+        <p className="border flex justify-center text-yellow-300">-----   Y e a r  G r a p h  P a g e   -----</p>
         Nostrum sit ab iure fuga distinctio eaque mollitia aut voluptatibus
         officia temporibus, saepe quae illum quidem numquam deserunt. Est
         pariatur libero maxime, nisi iusto excepturi officia alias aut magnam
         corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
         placeat! Dolor temporibus quos sequi error fugiat facere.
       </p>
+      <ExitButton/>
     </>
   );
 }
