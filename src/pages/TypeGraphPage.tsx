@@ -1,7 +1,26 @@
 import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
+import { useQuery } from "@tanstack/react-query";
 
 export default function TypeGraphPage() {
+
+  const { data, isPending, error} = useQuery({
+    queryKey: ["type_tournage"],
+    queryFn: async () => {
+      const url =  new URL("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records");
+      url.searchParams.set("limit", "100");
+
+      const response = await fetch(url.toString());
+      if (!response.ok) throw new Error("Error API");
+   
+      return response.json();
+    },
+  });
+
+  console.log(data);
+
+if (isPending) return <p>Chargement...</p>;
+if (error) return <p>Erreur : {error.message}</p>;
   return (
     <>
     <Navbar/>
