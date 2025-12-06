@@ -85,13 +85,13 @@ export function StackedAreaChart() {
     [key: string]: any | string,
   }
   
-  const results: typeTournage[] = [];
+  const newDataOrganised: typeTournage[] = [];
   
   for (const shooting of data.results) {
     const anneeFromShooting = shooting.annee_tournage;
     const typeFromShooting = shooting.type_tournage;
 
-    let anneeFound = results.find(
+    let anneeFound = newDataOrganised.find(
       (r: typeTournage) => r.year === anneeFromShooting
     );
 
@@ -102,7 +102,7 @@ export function StackedAreaChart() {
         anneeFound![type] = 0;
       })
 
-      results.push(anneeFound);
+      newDataOrganised.push(anneeFound);
     }
 
     if(anneeFound) {
@@ -111,8 +111,8 @@ export function StackedAreaChart() {
 
   }
 
-  console.log("Résultats par année", results);
-  console.log("la clé", typeof Object.keys(results[0])[0]);
+  console.log("Résultats par année", newDataOrganised);
+  console.log("la clé", typeof Object.keys(newDataOrganised[0])[0]);
 
  return (
     <>
@@ -124,7 +124,7 @@ export function StackedAreaChart() {
           aspectRatio: 1.618,
         }}
         responsive
-        data={results}
+        data={newDataOrganised}
         margin={{
           top: 20,
           right: 0,
@@ -133,7 +133,7 @@ export function StackedAreaChart() {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey={Object.keys(results[0])[0]} />
+        <XAxis dataKey={Object.keys(newDataOrganised[0])[0]} />
         {/* <XAxis dataKey="year" /> */}
         <YAxis width="auto" />
         <Tooltip />
