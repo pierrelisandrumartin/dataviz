@@ -134,7 +134,6 @@ export function StackedAreaChart() {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey={Object.keys(newDataOrganised[0])[0]} />
-        {/* <XAxis dataKey="year" /> */}
         <YAxis width="auto" />
         <Tooltip />
         {stateTypes.map((type, index) => (
