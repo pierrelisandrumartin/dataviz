@@ -1,7 +1,6 @@
 import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
-import Firstgraph from "../components/components_graphs/Firstgraph";
-
+import Firstgraph from "../components/components_graph/Firstgraph";
 
 export default function ShootingGraphPage() {
   return (
@@ -22,7 +21,9 @@ export default function ShootingGraphPage() {
         corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
         placeat! Dolor temporibus quos sequi error fugiat facere.
       </p>
+      <div className="m-auto">
         <Firstgraph />
+      </div>
       <ExitButton />
     </>
   );

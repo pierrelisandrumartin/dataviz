@@ -26,3 +26,6 @@ dist-ssr
 
 #configuration, vite
 vite.config.ts
+
+#dossier
+tests/
