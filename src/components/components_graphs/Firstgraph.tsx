@@ -1,323 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-// import {
-//   LineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   Legend,
-// } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
+export function TotalCount() {}
 
+// #endregion
 
-const year = {
-    "total_count": 14760,
-    "results": [
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2024"
-        },
-        {
-            "annee_tournage": "2024"
-        },
-        {
-            "annee_tournage": "2024"
-        },
-        {
-            "annee_tournage": "2024"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2020"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2022"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2023"
-        },
-        {
-            "annee_tournage": "2024"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2019"
-        },
-        {
-            "annee_tournage": "2021"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2016"
-        },
-        {
-            "annee_tournage": "2017"
-        },
-        {
-            "annee_tournage": "2018"
-        },
-        {
-            "annee_tournage": "2017"
-        }
-    ]
-}
-
-export function TotalCount() {
+export default function Firstgraph() {
   const { data, isPending, error } = useQuery({
     queryKey: ["totalCount2016"],
     queryFn: async () => {
@@ -336,92 +32,100 @@ export function TotalCount() {
   if (isPending) return <p>Chargement…</p>;
   if (error) return <p>Erreur : {error.message}</p>;
 
+  const countByResponse: any = {};
+  const resultArray: any = [];
 
-  const countByResponse : any = {};
-
-for (const results of data.results) {
-    const  annee_tournage = results.annee_tournage;
+  for (const results of data.results) {
+    const annee_tournage = results.annee_tournage;
     if (countByResponse[annee_tournage] === undefined) {
-        countByResponse [annee_tournage] = 1;
+      countByResponse[annee_tournage] = 1;
+    } else {
+      countByResponse[annee_tournage] = countByResponse[annee_tournage] + 1;
     }
-    else {
-        countByResponse[annee_tournage] = countByResponse[annee_tournage] +1;
-    }
-    
+  }
+
+  for (const response in countByResponse) {
+    resultArray.push({
+      response: response,
+      count: countByResponse[response],
+    });
+  }
+
+  console.log(resultArray);
+  //   const data = [
+  //     {
+  //       name: "Page A",
+  //       uv: 4000,
+  //       pv: 2400,
+  //       amt: 2400,
+  //     },
+  //     {
+  //       name: "Page B",
+  //       uv: 3000,
+  //       pv: 1398,
+  //       amt: 2210,
+  //     },
+  //     {
+  //       name: "Page C",
+  //       uv: 2000,
+  //       pv: 9800,
+  //       amt: 2290,
+  //     },
+  //     {
+  //       name: "Page D",
+  //       uv: 2780,
+  //       pv: 3908,
+  //       amt: 2000,
+  //     },
+  //     {
+  //       name: "Page E",
+  //       uv: 1890,
+  //       pv: 4800,
+  //       amt: 2181,
+  //     },
+  //     {
+  //       name: "Page F",
+  //       uv: 2390,
+  //       pv: 3800,
+  //       amt: 2500,
+  //     },
+  //     {
+  //       name: "Page G",
+  //       uv: 3490,
+  //       pv: 4300,
+  //       amt: 2100,
+  //     },
+  //   ];
+
+  return (
+    <LineChart
+      style={{
+        width: "100%",
+        maxWidth: "700px",
+        height: "100%",
+        maxHeight: "70vh",
+        aspectRatio: 1.618,
+      }}
+      responsive
+      data={resultArray}
+      margin={{
+        top: 5,
+        right: 0,
+        left: 0,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="response" />
+      <YAxis width="auto" dataKey="count" />
+      <Tooltip />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="count"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+    </LineChart>
+  );
 }
-
-  //   return <p>data</p>;
-  //   for (let i = 0; i < data.length; i++) {
-  //     console.log(data);
-  //   }
-
-//   let temp = [2016, 2017, 2020, 2019];
-
-//   for (const el of data.results) {
-//     for (let i = 0; i < temp.length; i++){
-//         if (el === temp[i]) {
-//             +1 ---> temp[i]
-//         } 
-//         else{
-//             temp.push(el)
-//         }
-
-//     }
-//   }
-
-//   console.log(temp);
-  //   return data.results;
-  //   for (let i = 0; i < data.length; i++) {
-  //     console.log(data[i].year);
-  //   }
-}
-
-    // const data = [
-    //   {
-    //     year: "2012",
-    //     total: 1345,
-    //   },
-    //   {
-    //     year: "2013",
-    //     total: 1345,
-    //   },
-    //   {
-    //     year: "2014",
-    //     total: 3445,
-    //   },
-    // ];
-
-// export default function Firstgraph() {
-//   return (
-//     <LineChart
-//       style={{
-//         width: "100%",
-//         maxWidth: "700px",
-//         height: "100%",
-//         maxHeight: "70vh",
-//         aspectRatio: 1.618,
-//       }}
-//       responsive
-//       data={countByResponse}
-//       margin={{
-//         top: 5,
-//         right: 0,
-//         left: 0,
-//         bottom: 5,
-//       }}
-//     >
-//       <CartesianGrid strokeDasharray="3 3" />
-//       <XAxis dataKey="annee_tournage" />
-//       <YAxis width="auto" />
-//       <Tooltip />
-//       <Legend />
-//       <Line
-//         type="monotone"
-//         dataKey="total"
-//         stroke="#8884d8"
-//         activeDot={{ r: 8 }}
-//       />
-//     </LineChart>
-//     // <p>{TotalCount()}</p>
-//   );
-// }
