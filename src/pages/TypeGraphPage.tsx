@@ -1,26 +1,38 @@
+// import des modules et de leur méthodes
 import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
 import { useQuery } from "@tanstack/react-query";
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
+// fonction d'export des données de l'API
 function SimpleBarChart() {
+
+  // --- gestion de la donnée sortante de l'API
   const { data, isPending, error } = useQuery({
+    // déclaration obligatoire d'une clé
     queryKey: ["type_tournage"],
+
+    // gestion de la sortie de donnée API
     queryFn: async () => {
+      // transformation de l'url en objet URL afin d'appliquer plus faciliment des query params
       const url = new URL(
         "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records"
       );
       url.searchParams.set("limit", "100");
 
+      // transformation de l'objet URL en string, puis en objet Response ...
       const response = await fetch(url.toString());
+      // (si ça fonctionne pas, alors Ereur)
       if (!response.ok) throw new Error("Error API");
-
+      // ... puis transformation de l'objet Response en format json puis renvoi à la variable "data" 
       return response.json();
     },
   });
 
-
+  // --- gestion de la donnée sortante de l'API (chargement)
   if (isPending) return <p>Chargement...</p>;
+
+  // --- gestion de la donnée sortante de l'API (échec)
   if (error) return <p>Erreur : {error.message}</p>;
 
   const newDataOrganised: { type: string; value: number }[] = [];
