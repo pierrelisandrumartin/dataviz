@@ -17,6 +17,9 @@ function SimpleBarChart() {
     }
   })
 
+  if (isPending) return <p>Chargement...</p>
+  if (error) return <p>Error : {error.message}</p>
+
   const directorAndValueData : {director : string, value : number}[] = []
 
   for (const value of data.results) {
@@ -38,8 +41,7 @@ function SimpleBarChart() {
 
 
 
-  if (isPending) return <p>Chargement...</p>
-  if (error) return <p>Error : {error.message}</p>
+
 
 // // #region Sample data
 // const data = [
