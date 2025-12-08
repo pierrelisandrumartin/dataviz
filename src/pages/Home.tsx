@@ -1,6 +1,5 @@
 import "./App.css";
 
-
 // Header
 import Header from "../components/header/Header.tsx";
 
@@ -13,18 +12,17 @@ import GraphIconContainer from "../components/components_graphsIcon/GraphIconCon
 // Footer
 import Info from "../components/components_footer/Info.tsx";
 
-function Home () {
+function Home() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
       <Header />
       <Presentation />
-      <GraphIconContainer/>
+      <GraphIconContainer />
       <Info />
     </>
   );
 }
-
 
 export default Home;
