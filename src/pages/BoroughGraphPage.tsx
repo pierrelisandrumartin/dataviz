@@ -83,23 +83,20 @@ export default function BoroughGraphPage() {
   return (
     <>
       <Navbar />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id error vero
-        libero perferendis voluptas blanditiis tempora, debitis beatae explicabo
-        voluptates! Eos, molestias nisi. Error, delectus. Illum iusto incidunt
-        explicabo consequatur libero nesciunt. Harum eos ratione sequi
-        voluptates, architecto voluptas voluptatibus! Architecto, illum, vitae
-        <p className="border flex justify-center text-red-300">
+      <div className="bg-white text-center justify-item-center">
+        <p className="border flex justify-center ">
           ----- B o r o u g h G r a p h P a g e -----
         </p>
-        Nostrum sit ab iure fuga distinctio eaque mollitia aut voluptatibus
-        officia temporibus, saepe quae illum quidem numquam deserunt. Est
-        pariatur libero maxime, nisi iusto excepturi officia alias aut magnam
-        corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
-        placeat! Dolor temporibus quos sequi error fugiat facere.
+        <p>
+        Le 75009 arrive largement en tête avec 12 tournages, ce qui en fait la zone la plus sollicitée. <br />
+Les 75013 et 75001 suivent avec 8 tournages chacun, montrant un niveau d’activité élevé. <br />
+Le 75012 (7 tournages) ainsi que les arrondissements entre 5 et 6 tournages forment un groupe intermédiaire. <br />
+De nombreux arrondissements comme les 75018, 75002 ou 75020 affichent une activité plus modérée, entre 3 et 4 tournages. <br />
+Enfin, les zones les moins utilisées sont les 75006 et 92170, avec 1 seul tournage chacune.
       </p>
       {VerticalComposedChart()}
       <ExitButton />
+      </div>
     </>
   );
 }

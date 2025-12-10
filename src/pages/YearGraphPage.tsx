@@ -14,13 +14,12 @@ import {
 
 // fonction d'export des données de l'API
 export function StackedAreaChart() {
-
   interface ShootingData {
     annee_tournage: string;
     type_tournage: string;
     [key: string]: string | number;
   }
-  
+
   // --- gestion de la donnée sortante de l'API
   const { data, isPending, error } = useQuery<{
     results: ShootingData[];
@@ -35,26 +34,43 @@ export function StackedAreaChart() {
         "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records"
       );
       url.searchParams.set("limit", "100");
-      
+
       // transformation de l'objet URL en string, puis en objet Response ...
       const response = await fetch(url.toString());
       // (si ça fonctionne pas, alors Ereur)
       if (!response.ok) throw new Error("Erreur API");
-      // ... puis transformation de l'objet Response en format json puis renvoi à la variable "data" 
+      // ... puis transformation de l'objet Response en format json puis renvoi à la variable "data"
       return response.json();
     },
   });
-  
+
   // --- Hook pour génrer la génération de type de tournage et la génération de couleur aléatoire
   const [stateTypes, setStateTypes] = useState<string[]>([]);
   const [stateColor, setStateColor] = useState<string[]>([]);
-  
+
   // --- utilisation du useEffect pour contrôler la génération de couleur aléatoire
   useEffect(() => {
     // création des différents caractères existants dans une coleur au format HexaDécimal
-    const charHexaPossibility : string[] = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+    const charHexaPossibility: string[] = [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+    ];
     const color: string[] = [];
-    
+
     // pour tous les types générés :
     stateTypes.forEach(() => {
       const randomHexaColorStocker: string[] = [];
@@ -71,10 +87,10 @@ export function StackedAreaChart() {
 
     // renvoi de la couleur aléatoire par le Useeffect
     setStateColor(color);
-    
+
     // récupération de chaque type pour le passer en contrôle par un useEffect
   }, [stateTypes]);
-  
+
   // --- utilisation du useEffect pour contrôler les types de tournage générés
   // --- gestion de la donnée sortante de l'API (succès)
   useEffect(() => {
@@ -93,56 +109,54 @@ export function StackedAreaChart() {
 
     // récupération de la donnée API pour le passer en contrôle par un useEffect
   }, [data]);
-  
+
   // --- gestion de la donnée sortante de l'API (chargement)
   if (isPending) return <p>Chargement…</p>;
-  
+
   // --- gestion de la donnée sortante de l'API (échec)
   if (error) return <p>Erreur : {error.message}</p>;
- 
-  
+
   // --- une fois les données envoyées, création du nombre de tournage par types de tournage pour chaque année
 
   interface typeTournage {
-    year: string,
-    [key: string]: any | string,
+    year: string;
+    [key: string]: any | string;
   }
 
-  // --- tableau vide qui va servir d'afficher les données dans le graph  
+  // --- tableau vide qui va servir d'afficher les données dans le graph
   const newDataOrganised: typeTournage[] = [];
 
-  // --- logique permettant de récupérer les données par année  
+  // --- logique permettant de récupérer les données par année
   for (const shooting of data.results) {
     const anneeFromShooting = shooting.annee_tournage;
     const typeFromShooting = shooting.type_tournage;
 
-    // si dans newDataOrganised, une année correspond à la même que dans les données API on le rajoute dans anneeFound 
+    // si dans newDataOrganised, une année correspond à la même que dans les données API on le rajoute dans anneeFound
     let anneeFound = newDataOrganised.find(
       (r: typeTournage) => r.year === anneeFromShooting
     );
 
     // si pas de correspondance...
     if (!anneeFound) {
-
       // ...on rajoute la correspondance dans newDataOrganised...
       anneeFound = { year: anneeFromShooting };
 
       // ...on met à 0 tous les types du graphique pour que les lignes soient tracées dans le graph au cas où si le type n'existe pas...
       stateTypes.forEach((type) => {
         anneeFound![type] = 0;
-      })
+      });
 
       //...rajout des correspondances trouvées dans newDataOrganised.
       newDataOrganised.push(anneeFound);
     }
 
     // si il y a une correspondance on rajout +1 (ou 0 si annéeFound n'existe pas) à la clé type pour le traçage de la ligne.
-    if(anneeFound) {
+    if (anneeFound) {
       anneeFound[typeFromShooting] = (anneeFound[typeFromShooting] || 0) + 1;
     }
   }
 
- return (
+  return (
     <>
       <AreaChart
         style={{
@@ -188,24 +202,24 @@ export default function YearGraphPage() {
   return (
     <>
       <Navbar />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id error vero
-        libero perferendis voluptas blanditiis tempora, debitis beatae explicabo
-        voluptates! Eos, molestias nisi. Error, delectus. Illum iusto incidunt
-        explicabo consequatur libero nesciunt. Harum eos ratione sequi
-        voluptates, architecto voluptas voluptatibus! Architecto, illum, vitae
-        <p className="border flex justify-center text-yellow-300">
-          ----- Y e a r G r a p h P a g e -----
+      <div className="text-center bg-white justify-item-center">
+        <p></p>
+        ----- Y e a r G r a p h P a g e -----
+        <p>
+          Le graphique illustre l’évolution des tournages à Paris entre 2016 et
+          2024, en distinguant longs métrages, séries TV et téléfilms. Après un
+          pic en 2016 avec 20 longs métrages et 9 séries, la production chute
+          nettement en 2017 puis reste faible jusqu’en 2024. Les années 2018 à
+          2020 montrent une activité relativement stable, avec peu de longs
+          métrages et très peu de séries ou téléfilms. En 2021 et 2022, les
+          séries TV et téléfilms repartent à la hausse malgré un nombre limité
+          de longs métrages. La tendance se contracte ensuite, atteignant en
+          2024 un niveau minimal avec seulement 1 long métrage et 4 séries TV.
         </p>
-        Nostrum sit ab iure fuga distinctio eaque mollitia aut voluptatibus
-        officia temporibus, saepe quae illum quidem numquam deserunt. Est
-        pariatur libero maxime, nisi iusto excepturi officia alias aut magnam
-        corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
-        placeat! Dolor temporibus quos sequi error fugiat facere.
-      </p>
-      {/* intégration du chart dans le composantde la page */}
-      <p>{StackedAreaChart()}</p>
-      <ExitButton />
+        {/* intégration du chart dans le composantde la page */}
+        <p>{StackedAreaChart()}</p>
+        <ExitButton />
+      </div>
     </>
   );
 }
