@@ -1,13 +1,23 @@
 import ExitButton from "../components/components_exitGraphPage/ExitButton";
 import Navbar from "../components/header/Navbar";
-import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import {
+  ComposedChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 import { useQuery } from "@tanstack/react-query";
 
 function VerticalComposedChart() {
   const { data, isPending, error } = useQuery({
     queryKey: ["BoroughGraph"],
     queryFn: async () => {
-      const url = new URL("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records");
+      const url = new URL(
+        "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records"
+      );
       url.searchParams.set("limit", "100");
       const response = await fetch(url.toString());
       const dataResponse = await response.json();
@@ -74,7 +84,6 @@ function VerticalComposedChart() {
       <Tooltip />
       <Legend />
       <Bar dataKey="value" barSize={15} fill="#413ea0" />
-      <Bar dataKey="value" barSize={15} fill="#413ea0" />
     </ComposedChart>
   );
 }
@@ -88,14 +97,19 @@ export default function BoroughGraphPage() {
           ----- B o r o u g h G r a p h P a g e -----
         </p>
         <p>
-        Le 75009 arrive largement en tête avec 12 tournages, ce qui en fait la zone la plus sollicitée. <br />
-Les 75013 et 75001 suivent avec 8 tournages chacun, montrant un niveau d’activité élevé. <br />
-Le 75012 (7 tournages) ainsi que les arrondissements entre 5 et 6 tournages forment un groupe intermédiaire. <br />
-De nombreux arrondissements comme les 75018, 75002 ou 75020 affichent une activité plus modérée, entre 3 et 4 tournages. <br />
-Enfin, les zones les moins utilisées sont les 75006 et 92170, avec 1 seul tournage chacune.
-      </p>
-      {VerticalComposedChart()}
-      <ExitButton />
+          Le 75009 arrive largement en tête avec 12 tournages, ce qui en fait la
+          zone la plus sollicitée. <br />
+          Les 75013 et 75001 suivent avec 8 tournages chacun, montrant un niveau
+          d’activité élevé. <br />
+          Le 75012 (7 tournages) ainsi que les arrondissements entre 5 et 6
+          tournages forment un groupe intermédiaire. <br />
+          De nombreux arrondissements comme les 75018, 75002 ou 75020 affichent
+          une activité plus modérée, entre 3 et 4 tournages. <br />
+          Enfin, les zones les moins utilisées sont les 75006 et 92170, avec 1
+          seul tournage chacune.
+        </p>
+        {VerticalComposedChart()}
+        <ExitButton />
       </div>
     </>
   );
