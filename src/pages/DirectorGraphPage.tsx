@@ -15,9 +15,12 @@ function SimpleBarChart() {
       url.searchParams.set("select", "nom_realisateur, count(*) as total");
       url.searchParams.set("group_by", "nom_realisateur");
       url.searchParams.set("order_by", "total DESC");
+      url.searchParams.set("where", "nom_realisateur IS NOT NULL AND nom_realisateur != ''");
 
       if (state !== "Toutes années")
         url.searchParams.set("where", `"${state}"`);
+      else
+        url.searchParams.set("where", "nom_realisateur IS NOT NULL AND nom_realisateur != ''");
 
       const response = await fetch(url.toString());
       return await response.json();
@@ -26,6 +29,8 @@ function SimpleBarChart() {
 
   if (isPending) return <p>Chargement...</p>;
   if (error) return <p>Error : {error.message}</p>;
+
+  console.log(data.results)
 
   return (
     <>
