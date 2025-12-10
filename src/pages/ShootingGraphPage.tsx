@@ -6,25 +6,29 @@ export default function ShootingGraphPage() {
   return (
     <>
       <Navbar />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id error vero
-        libero perferendis voluptas blanditiis tempora, debitis beatae explicabo
-        voluptates! Eos, molestias nisi. Error, delectus. Illum iusto incidunt
-        explicabo consequatur libero nesciunt. Harum eos ratione sequi
-        voluptates, architecto voluptas voluptatibus! Architecto, illum, vitae
-        <p className="border flex justify-center text-green-300">
+      <div className=" bg-white">
+        <p className="border flex justify-center text-gray-600">
           ----- S h o o t i n g G r a p h P a g e -----
         </p>
-        Nostrum sit ab iure fuga distinctio eaque mollitia aut voluptatibus
-        officia temporibus, saepe quae illum quidem numquam deserunt. Est
-        pariatur libero maxime, nisi iusto excepturi officia alias aut magnam
-        corrupti laborum illum iste, esse hic reprehenderit, optio eligendi quis
-        placeat! Dolor temporibus quos sequi error fugiat facere.
-      </p>
-      <div className="m-auto">
+        <p className=" text-center text-gray-800">
+          Le graphique présente l’évolution du nombre de tournages à Paris entre
+          2016 et 2024, avec des variations marquées d’une année à l’autre.
+          L’année 2016 affiche un pic à 19 tournages, suivie d’une forte baisse
+          en 2017 à seulement 9. On observe ensuite une remontée en 2018 avec 14
+          tournages, avant un léger recul à 12 en 2019. La période 2020-2023
+          reste globalement stable autour de 9 à 12 tournages, traduisant une
+          activité fluctuante mais contenue. En 2024, le nombre chute à 6
+          tournages, marquant le niveau le plus bas de la période observée.
+        </p>
         <Firstgraph />
+        <ExitButton />
       </div>
-      <ExitButton />
     </>
   );
 }
+// Évolution du nombre de tournages par année
+// Graphique en ligne (LineChart)
+
+// Axe X = année, axe Y = nombre de tournages
+
+// Objectif : observer les tendances (pics, baisses, périodes creuses)
