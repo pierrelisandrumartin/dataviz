@@ -27,23 +27,6 @@ function SimpleBarChart() {
   if (isPending) return <p>Chargement...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  // const directorAndValueData : {director : string, value : number}[] = []
-
-  // for (const value of data.results) {
-  //   const found = directorAndValueData.find(r => r.director === value.nom_realisateur)
-
-  //   if(!found) {
-  //     const found : {director : string, value : number} = {
-  //       director: value.nom_realisateur,
-  //       value: 1,
-  //     };
-  //     directorAndValueData.push(found);
-  //   } else
-  //     found!.value++;
-  // }
-
-  console.log(data);
-
   return (
     <>
       <select name="year_filter" id="year_filter" onChange={(e) => setState(e.target.value)}>
