@@ -4,7 +4,7 @@ export default function Info() {
         <div id="info_container" className="mx-auto mt-[20px] p-[5px] max-w-fit h-[100px] flex ">
             <div className="flex-1 flex-col text-center ">
                 <h3 className="mb-[3px] mx-[5px] font-bold bg-gray-200 ">Projet dataviz</h3>
-                <p className="leading-[30px] text-[14px]">Une modélisation simple des données sur l'activité cinématographique parisienne 🎥</p>
+                <p className="leading-[30px] text-[14px] text-white">Une modélisation simple des données sur l'activité cinématographique parisienne 🎥</p>
             </div>
             <div className="flex-1 flex-col text-center ">
                 <h3 className="mb-[3px] mx-[5px] font-bold bg-gray-200 ">Ressources</h3>
@@ -20,11 +20,11 @@ export default function Info() {
             <div className="flex-1 flex-col text-center">
                 <h3 className="mb-[3px] mx-[5px] font-bold bg-gray-200">Auteurs</h3>
                 <div id="auteurs_container" className="grid grid-cols-2 gap-x-4 text-[14px]">
-                    <a className="hover:font-bold" href="https://github.com/pierrelisandrumartin/dataviz" target="_blank">Github Repo dataviz</a>
-                    <a className="hover:font-bold" href="https://github.com/pierrelisandrumartin" target="_blank">Github Pierre</a>
-                    <a className="hover:font-bold" href="https://github.com/Ixibus" target="_blank">Github Franck</a>
-                    <a className="hover:font-bold" href="https://www.linkedin.com/in/pierre-lisandru-martin-4b178a291/" target="_blank">Linkedin Pierre</a>
-                    <a className="hover:font-bold" href="https://www.linkedin.com/in/franck-corcher-61b36440/" target="_blank">Linkedin Franck</a>
+                    <a className="hover:font-bold text-white" href="https://github.com/pierrelisandrumartin/dataviz" target="_blank">Github Repo dataviz</a>
+                    <a className="hover:font-bold text-white" href="https://github.com/pierrelisandrumartin" target="_blank">Github Pierre</a>
+                    <a className="hover:font-bold text-white" href="https://github.com/Ixibus" target="_blank">Github Franck</a>
+                    <a className="hover:font-bold text-white" href="https://www.linkedin.com/in/pierre-lisandru-martin-4b178a291/" target="_blank">Linkedin Pierre</a>
+                    <a className="hover:font-bold text-white" href="https://www.linkedin.com/in/franck-corcher-61b36440/" target="_blank">Linkedin Franck</a>
                 </div>
             </div>
         </div>
